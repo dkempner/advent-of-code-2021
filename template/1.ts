@@ -1,3 +1,3 @@
-import { solve } from "./helper";
+import { solve } from './helper'
 
-solve((input) => {});
+solve((input) => {})
