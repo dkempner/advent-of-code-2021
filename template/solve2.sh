@@ -1,2 +1,2 @@
 #!/bin/bash
-cat input2 | node 2.js
+cat input2 | ts-node-transpile-only 2.ts
