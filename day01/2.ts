@@ -13,5 +13,5 @@ solve((input) => {
     }
   }
 
-  console.log(increases)
+  return increases
 })

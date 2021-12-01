@@ -8,5 +8,5 @@ solve((input) => {
     if (numbers[i] > numbers[i - 1]) increases++
   }
 
-  console.log(increases)
+  return increases
 })
