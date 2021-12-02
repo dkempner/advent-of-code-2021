@@ -1,3 +1,7 @@
 import { solve } from './helper'
 
-solve((input) => {})
+solve((lines) => {
+  lines.forEach((line) => {
+    console.log(line)
+  })
+})
