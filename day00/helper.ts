@@ -10,3 +10,7 @@ export function solve(cb: SolveCallback) {
     console.log(cb(lines))
   })
 }
+
+export const bitsToInt = (bits: string) => {
+  return parseInt(bits, 2)
+}
