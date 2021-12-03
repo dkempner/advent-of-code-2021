@@ -1,5 +1,17 @@
 import { solve } from './helper'
 
+const bitsToInt = (bits: string) => {
+  return parseInt(bits, 2)
+}
+
+const flipBits = (bits: string) => {
+  const newBits = []
+  bits.split('').forEach((bit) => {
+    newBits.push(bit === '0' ? '1' : '0')
+  })
+  return newBits.join('')
+}
+
 solve((lines) => {
   let gamma = ''
   let length = lines[0].length
@@ -28,11 +40,9 @@ solve((lines) => {
     }
   })
 
-  console.log(finalArr.join(''))
+  const originalBits = finalArr.join('')
+  const flipped = flipBits(originalBits)
 
-  // 2346 * 1749
+  return bitsToInt(originalBits) * bitsToInt(flipped)
 
-  100100101010
-  011011010101
-  
 })

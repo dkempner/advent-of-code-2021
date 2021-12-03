@@ -1,5 +1,9 @@
 import { solve } from './helper'
 
+const bitsToInt = (bits: string) => {
+  return parseInt(bits, 2)
+}
+
 const mostCommonInColumn = (grid: number[][], col: number) => {
   let zeroes = 0
   let ones = 0
@@ -66,8 +70,8 @@ solve((lines) => {
     grid.push(row)
   })
 
-  let oxygen = getOxygen(grid) // 110101000111 = 3399
-  let co2 = getCo2(grid) // 010011100001 = 1249
+  const oxygen = getOxygen(grid) // 110101000111 = 3399
+  const co2 = getCo2(grid) // 010011100001 = 1249
 
-  console.log({oxygen, co2})
+  return bitsToInt(oxygen) * bitsToInt(co2)
 })
