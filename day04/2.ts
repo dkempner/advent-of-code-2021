@@ -4,7 +4,7 @@ const rows = (board: number[][]) => {
   return board
 }
 
-const columns = (board: number[][]): number[][] => {
+const columns = (board: number[][]) => {
   const length = board[0].length
   const columns = []
   for (let i = 0; i < length; i++) {
@@ -29,7 +29,7 @@ const isWinner = (board: number[][], calledNumbs: Set<number>) => {
 }
 
 const uncalledNumbers = (board: number[][], calledNumbs: Set<number>) => {
-  const result = []
+  const result: number[] = []
 
   board.forEach((row) => {
     row.forEach((cell) => {
@@ -69,6 +69,7 @@ solve((lines) => {
   let winner = undefined
   while (remainingBoards.length > 0) {
     const nextNumber = bingoNumbers.shift()
+    if (!nextNumber) break
     calledNumbs.add(nextNumber)
     remainingBoards = remainingBoards.filter(
       (board) => !isWinner(board, calledNumbs)
@@ -76,12 +77,16 @@ solve((lines) => {
     if (remainingBoards.length === 1) winner = remainingBoards[0]
   }
 
+  if (!winner) throw new Error('No winner')
+
   const uncalled = uncalledNumbers(winner, calledNumbs)
   const sum = uncalled.reduce((prev, curr) => {
     return prev + curr
   }, 0)
 
   const lastCalled = Array.from(calledNumbs).pop()
+
+  if (!lastCalled) throw new Error('no lastCalled')
 
   return sum * lastCalled
 })

@@ -61,9 +61,9 @@ const getCo2 = (grid: number[][]) => {
 }
 
 solve((lines) => {
-  const grid = []
+  const grid: number[][] = []
   lines.forEach((l) => {
-    const row = []
+    const row: number[] = []
     l.split('').forEach((char) => {
       row.push(Number(char))
     })
@@ -72,6 +72,8 @@ solve((lines) => {
 
   const oxygen = getOxygen(grid) // 110101000111 = 3399
   const co2 = getCo2(grid) // 010011100001 = 1249
+
+  if (!oxygen || !co2) throw new Error('didnt get oxygen or co2')
 
   return bitsToInt(oxygen) * bitsToInt(co2)
 })

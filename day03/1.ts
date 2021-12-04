@@ -5,7 +5,7 @@ const bitsToInt = (bits: string) => {
 }
 
 const flipBits = (bits: string) => {
-  const newBits = []
+  const newBits: string[] = []
   bits.split('').forEach((bit) => {
     newBits.push(bit === '0' ? '1' : '0')
   })
@@ -16,7 +16,7 @@ solve((lines) => {
   let gamma = ''
   let length = lines[0].length
 
-  let bits = []
+  let bits: number[] = []
   for (let i = 0; i < length; i++) {
     bits[i] = 0
   }
@@ -32,7 +32,7 @@ solve((lines) => {
     }
   })
 
-  let finalArr = []
+  let finalArr: number[] = []
   bits.forEach((bit) => {
     if (bit > 0) finalArr.push(1)
     else {
