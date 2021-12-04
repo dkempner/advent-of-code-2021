@@ -66,7 +66,7 @@ solve((lines) => {
   let winner: number[][] | undefined = undefined
   while (!winner) {
     const nextNumber = bingoNumbers.shift()
-    if (!nextNumber) break
+    if (typeof nextNumber === 'undefined') break
     calledNumbs.add(nextNumber)
     winner = boards.find((board) => isWinner(board, calledNumbs))
   }

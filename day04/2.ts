@@ -1,4 +1,4 @@
-import { solve, bitsToInt } from './helper'
+import { solve } from './helper'
 
 const rows = (board: number[][]) => {
   return board
@@ -62,14 +62,12 @@ solve((lines) => {
   }
   boards.push(board)
 
-  debugger
-
   const calledNumbs = new Set<number>()
   let remainingBoards = boards
   let winner = undefined
   while (remainingBoards.length > 0) {
     const nextNumber = bingoNumbers.shift()
-    if (!nextNumber) break
+    if (typeof nextNumber === 'undefined') break
     calledNumbs.add(nextNumber)
     remainingBoards = remainingBoards.filter(
       (board) => !isWinner(board, calledNumbs)
